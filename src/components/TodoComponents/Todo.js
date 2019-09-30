@@ -1,6 +1,9 @@
 import React from "react";
 
-export default function Todo(props) {
-  const { task, id } = props;
-  return <div key={id}>{task}</div>;
-}
+class Todo extends React.Component {
+  render() {
+    return <div key={this.props.id}>{this.props.task}</div>;
+  }
+};
+
+export default Todo;

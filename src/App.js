@@ -27,7 +27,7 @@ class App extends React.Component {
 
   onChange = event => {
     this.setState({
-      newTodo: event.target.value
+      newToDo: event.target.value
     });
   };
 
@@ -36,11 +36,11 @@ class App extends React.Component {
     const addedTodo = {
       completed: false,
       id: Date.now(),
-      task: this.state.newTodo,
+      task: this.state.newToDo,
     };
     this.setState({
       todoList: this.state.todoList.concat(addedTodo),
-      newTodo: "",
+      newToDo: "",
     });
     console.log(this.state.todoList);
   };
@@ -49,7 +49,7 @@ class App extends React.Component {
     event.preventDefault();
     this.setState({
       todoList: [],
-      newTodo: ""
+      newToDo: ""
     });
   };
 
@@ -60,7 +60,7 @@ class App extends React.Component {
           <h1>To Do List</h1>
           <TodoList todoList={this.state.todoList} />
           <TodoForm
-            newTodo={this.newTodo}
+            newToDo={this.newToDo}
             onChange={this.onChange}
             addTodo={this.addTodo}
             clearCompleted={this.clearCompleted}

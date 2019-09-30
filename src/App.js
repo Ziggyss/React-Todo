@@ -36,13 +36,18 @@ class App extends React.Component {
     const addedTodo = {
       completed: false,
       id: Date.now(),
-      task: this.state.newToDo,
+      task: this.state.newToDo
     };
     this.setState({
       todoList: this.state.todoList.concat(addedTodo),
-      newToDo: "",
+      newToDo: ""
     });
     console.log(this.state.todoList);
+  };
+
+  completedTask = event => {
+    event.target.completed = true;
+    this.setState(this.todoList.task.strike());
   };
 
   clearCompleted = event => {
@@ -58,7 +63,8 @@ class App extends React.Component {
       <div className="container">
         <div>
           <h1>To Do List</h1>
-          <TodoList todoList={this.state.todoList} />
+          <TodoList todoList={this.state.todoList} 
+          completedTask={this.props.completedTask}/>
           <TodoForm
             newToDo={this.newToDo}
             onChange={this.onChange}

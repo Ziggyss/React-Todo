@@ -6,9 +6,15 @@ import Todo from "./Todo";
 class TodoList extends React.Component {
   render() {
     return (
-      <div>
+      <div>gi
         {this.props.todoList.map(task => {
-          return <Todo key={task.id} task={task.task} />;
+          return (
+            <Todo
+              key={task.id}
+              task={task.task}
+              completedTask={this.props.completedTask}
+            />
+          );
         })}
       </div>
     );
